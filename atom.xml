@@ -6,7 +6,7 @@
   <link href="http://sp0okymirror.space/atom.xml" rel="self"/>
   
   <link href="http://sp0okymirror.space/"/>
-  <updated>2021-11-04T16:26:11.147Z</updated>
+  <updated>2021-11-04T16:33:36.691Z</updated>
   <id>http://sp0okymirror.space/</id>
   
   <author>
@@ -21,14 +21,15 @@
     <link href="http://sp0okymirror.space/2021/11/05/%E5%85%B3%E4%BA%8E%E5%BC%80%E5%8D%9A%E5%AE%A2%E9%82%A3%E7%82%B9%E4%BA%8B%E5%84%BF/"/>
     <id>http://sp0okymirror.space/2021/11/05/%E5%85%B3%E4%BA%8E%E5%BC%80%E5%8D%9A%E5%AE%A2%E9%82%A3%E7%82%B9%E4%BA%8B%E5%84%BF/</id>
     <published>2021-11-04T16:14:55.000Z</published>
-    <updated>2021-11-04T16:26:11.147Z</updated>
+    <updated>2021-11-04T16:33:36.691Z</updated>
     
-    <content type="html"><![CDATA[<pre><code>终于开了自己的博客。本意是打算记录学习过程中遇到的问题和一些闲言碎语，不过也无所谓啦，随便写点什么都行，因为之前总是写写就放弃了(虽然也没写啥)，但这次还是希望能够坚持下去，因为在学习过程中，总是在往脑子里放东西，而不曾将其输出为文字，我想这是不明智的。那就加油吧，尽量要多写点东西！</code></pre>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>​    终于开了自己的博客。本意是打算记录学习过程中遇到的问题和一些闲言碎语，不过也无所谓啦，随便写点什么都行，因为之前总是写写就放弃了(虽然也没写啥)，但这次还是希望能够坚持下去，因为在学习过程中，总是在往脑子里放东西，而不曾将其输出为文字，我想这是不明智的，也是我为啥进步那么慢的原因吧。那就加油吧，多写点文章，勤学习，勤思考！</p></blockquote>]]></content>
     
     
       
       
-    <summary type="html">&lt;pre&gt;&lt;code&gt;终于开了自己的博客。本意是打算记录学习过程中遇到的问题和一些闲言碎语，不过也无所谓啦，随便写点什么都行，因为之前总是写写就放弃了(虽然也没写啥)，但这次还是希望能够坚持下去，因为在学习过程中，总是在往脑子里放东西，而不曾将其输出为文字，我想这是不明智的。那就</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;​    终于开了自己的博客。本意是打算记录学习过程中遇到的问题和一些闲言碎语，不过也无所谓啦，随便写点什么都行，因为之前总是写写就放弃了(虽然也没写啥)，但这次还是希望能够坚持下去，因为在学习过程中，总是在往脑子里放东西，而不曾将其输出为文字，我</summary>
       
     
     
@@ -39,11 +40,11 @@
   </entry>
   
   <entry>
-    <title>Helloworld</title>
+    <title>HelloWorld</title>
     <link href="http://sp0okymirror.space/2021/11/01/HelloWorld/"/>
     <id>http://sp0okymirror.space/2021/11/01/HelloWorld/</id>
     <published>2021-11-01T10:29:43.000Z</published>
-    <updated>2021-11-01T10:30:01.756Z</updated>
+    <updated>2021-11-04T16:30:27.309Z</updated>
     
     <content type="html"><![CDATA[<p>This is test！</p>]]></content>
     
