@@ -6,7 +6,7 @@
   <link href="http://sp0okymirror.space/atom.xml" rel="self"/>
   
   <link href="http://sp0okymirror.space/"/>
-  <updated>2021-11-12T15:51:44.916Z</updated>
+  <updated>2021-11-12T16:03:48.206Z</updated>
   <id>http://sp0okymirror.space/</id>
   
   <author>
@@ -18,12 +18,12 @@
   
   <entry>
     <title>python学习记录</title>
-    <link href="http://sp0okymirror.space/2021/11/12/python%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/python%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
-    <id>http://sp0okymirror.space/2021/11/12/python%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/python%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</id>
+    <link href="http://sp0okymirror.space/2021/11/12/python%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
+    <id>http://sp0okymirror.space/2021/11/12/python%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</id>
     <published>2021-11-12T13:59:10.000Z</published>
-    <updated>2021-11-12T15:51:44.916Z</updated>
+    <updated>2021-11-12T16:03:48.206Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="0x00-简述"><a href="#0x00-简述" class="headerlink" title="0x00 简述"></a>0x00 简述</h3><blockquote><p>此篇博文记录学习python过程中遇到的问题以及解决的方式</p></blockquote><h3 id="0x01-Q-amp-A"><a href="#0x01-Q-amp-A" class="headerlink" title="0x01 Q&amp;A"></a>0x01 Q&amp;A</h3><ul><li><p>Q1：在安装Pyinstaller时，出现如下错误</p><ul><li><img src="/2021/11/12/python%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/python%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/gitcode\blog\myblog\source_posts\python学习记录\image-20211112220319763.png" alt="avatar"></li></ul></li><li><p>A1：报错的原因是权限不足。以管理员方式打开命令行再安装</p></li></ul><ul><li><p>Q2：Pyinstaller在运行时报错如下</p><p><img src="/2021/11/12/python%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/python%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/gitcode\blog\myblog\source_posts\python学习记录\image-20211112220633506.png" alt="avatar"></p></li><li><p>A2：在安装Pyinstaller过程中由于网络原因没有下载到Pyinstaller的配置文件。通过换源的方式解决。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install pqi</span><br><span class="line">pqi ls</span><br><span class="line">pqi use 源名字</span><br></pre></td></tr></table></figure></li></ul><ul><li>Q3：Pyinstaller打包成exe文件命令</li><li>A3：准备好exe文件图标。图标得是.ico类型的，然后将需要打包的py文件和图标放在一个文件夹下。使用命令命令：pyinstaller -F -i x.ico xx.py即可。</li></ul>]]></content>
+    <content type="html"><![CDATA[<h3 id="0x00-简述"><a href="#0x00-简述" class="headerlink" title="0x00 简述"></a>0x00 简述</h3><blockquote><p>此篇博文记录学习python过程中遇到的问题以及解决的方式</p></blockquote><h3 id="0x01-Q-amp-A"><a href="#0x01-Q-amp-A" class="headerlink" title="0x01 Q&amp;A"></a>0x01 Q&amp;A</h3><ul><li><p>Q1：在安装Pyinstaller时，出现如下错误</p><p><img src="/2021/11/12/python%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/gitcode\blog\myblog\source_posts\python学习记录\first.png" alt="first"></p></li><li><p>A1：报错的原因是权限不足。以管理员方式打开命令行再安装</p></li></ul><ul><li><p>Q2：Pyinstaller在运行时报错如下</p><p><img src="/2021/11/12/python%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/gitcode\blog\myblog\source_posts\python学习记录\second.png" alt="second"></p></li><li><p>A2：在安装Pyinstaller过程中由于网络原因没有下载到Pyinstaller的配置文件。通过换源的方式解决。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install pqi</span><br><span class="line">pqi ls</span><br><span class="line">pqi use 源名字</span><br></pre></td></tr></table></figure></li></ul><ul><li>Q3：Pyinstaller打包成exe文件命令</li><li>A3：准备好exe文件图标。图标得是.ico类型的，然后将需要打包的py文件和图标放在一个文件夹下。使用命令命令：pyinstaller -F -i x.ico xx.py即可。</li></ul>]]></content>
     
     
       
