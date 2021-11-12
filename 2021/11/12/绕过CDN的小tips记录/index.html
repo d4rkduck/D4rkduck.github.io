@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="0x00 前言​    前些天发现一个好玩的绕CDN的方式，记录一下，这篇文章后面会慢慢增加一些CDN绕过方式，学到了或者想到了就及时记录下来！ 0x01 Tips 通过提取站点ico文件，上传到fofa搜索，或者提取hash再搜索。这个方式个人感觉挺不错的，而且准确率挺高 ….">
+<meta property="og:type" content="article">
+<meta property="og:title" content="绕过CDN的小tips记录">
+<meta property="og:url" content="http://sp0okymirror.space/2021/11/12/%E7%BB%95%E8%BF%87CDN%E7%9A%84%E5%B0%8Ftips%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:site_name" content="Sp0okyMirror[0]">
+<meta property="og:description" content="0x00 前言​    前些天发现一个好玩的绕CDN的方式，记录一下，这篇文章后面会慢慢增加一些CDN绕过方式，学到了或者想到了就及时记录下来！ 0x01 Tips 通过提取站点ico文件，上传到fofa搜索，或者提取hash再搜索。这个方式个人感觉挺不错的，而且准确率挺高 ….">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-11-12T10:09:49.000Z">
+<meta property="article:modified_time" content="2021-11-12T10:14:30.303Z">
+<meta property="article:author" content="Sp0okyMirror">
+<meta property="article:tag" content="渗透测试">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>绕过CDN的小tips记录</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Sp0okyMirror[0]" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2021/11/12/%E6%B8%97%E9%80%8F%E5%B0%8FTips/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2021/11/12/Gates%E6%8C%96%E7%9F%BF%E9%A9%AC%E8%AE%B0%E5%BD%95/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://sp0okymirror.space/2021/11/12/%E7%BB%95%E8%BF%87CDN%E7%9A%84%E5%B0%8Ftips%E8%AE%B0%E5%BD%95/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://sp0okymirror.space/2021/11/12/%E7%BB%95%E8%BF%87CDN%E7%9A%84%E5%B0%8Ftips%E8%AE%B0%E5%BD%95/&text=绕过CDN的小tips记录"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://sp0okymirror.space/2021/11/12/%E7%BB%95%E8%BF%87CDN%E7%9A%84%E5%B0%8Ftips%E8%AE%B0%E5%BD%95/&title=绕过CDN的小tips记录"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://sp0okymirror.space/2021/11/12/%E7%BB%95%E8%BF%87CDN%E7%9A%84%E5%B0%8Ftips%E8%AE%B0%E5%BD%95/&is_video=false&description=绕过CDN的小tips记录"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=绕过CDN的小tips记录&body=Check out this article: http://sp0okymirror.space/2021/11/12/%E7%BB%95%E8%BF%87CDN%E7%9A%84%E5%B0%8Ftips%E8%AE%B0%E5%BD%95/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://sp0okymirror.space/2021/11/12/%E7%BB%95%E8%BF%87CDN%E7%9A%84%E5%B0%8Ftips%E8%AE%B0%E5%BD%95/&title=绕过CDN的小tips记录"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://sp0okymirror.space/2021/11/12/%E7%BB%95%E8%BF%87CDN%E7%9A%84%E5%B0%8Ftips%E8%AE%B0%E5%BD%95/&title=绕过CDN的小tips记录"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://sp0okymirror.space/2021/11/12/%E7%BB%95%E8%BF%87CDN%E7%9A%84%E5%B0%8Ftips%E8%AE%B0%E5%BD%95/&title=绕过CDN的小tips记录"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://sp0okymirror.space/2021/11/12/%E7%BB%95%E8%BF%87CDN%E7%9A%84%E5%B0%8Ftips%E8%AE%B0%E5%BD%95/&title=绕过CDN的小tips记录"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://sp0okymirror.space/2021/11/12/%E7%BB%95%E8%BF%87CDN%E7%9A%84%E5%B0%8Ftips%E8%AE%B0%E5%BD%95/&name=绕过CDN的小tips记录&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://sp0okymirror.space/2021/11/12/%E7%BB%95%E8%BF%87CDN%E7%9A%84%E5%B0%8Ftips%E8%AE%B0%E5%BD%95/&t=绕过CDN的小tips记录"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x00-%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">0x00 前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x01-Tips"><span class="toc-number">2.</span> <span class="toc-text">0x01 Tips</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        绕过CDN的小tips记录
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Sp0okyMirror</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2021-11-12T10:09:49.000Z" itemprop="datePublished">2021-11-12</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" rel="tag">渗透测试</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h3 id="0x00-前言"><a href="#0x00-前言" class="headerlink" title="0x00 前言"></a>0x00 前言</h3><p>​    前些天发现一个好玩的绕CDN的方式，记录一下，这篇文章后面会慢慢增加一些CDN绕过方式，学到了或者想到了就及时记录下来！</p>
+<h3 id="0x01-Tips"><a href="#0x01-Tips" class="headerlink" title="0x01 Tips"></a>0x01 Tips</h3><ul>
+<li>通过提取站点ico文件，上传到fofa搜索，或者提取hash再搜索。这个方式个人感觉挺不错的，而且准确率挺高</li>
+<li>….</li>
+</ul>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/about/">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x00-%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">0x00 前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x01-Tips"><span class="toc-number">2.</span> <span class="toc-text">0x01 Tips</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://sp0okymirror.space/2021/11/12/%E7%BB%95%E8%BF%87CDN%E7%9A%84%E5%B0%8Ftips%E8%AE%B0%E5%BD%95/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://sp0okymirror.space/2021/11/12/%E7%BB%95%E8%BF%87CDN%E7%9A%84%E5%B0%8Ftips%E8%AE%B0%E5%BD%95/&text=绕过CDN的小tips记录"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://sp0okymirror.space/2021/11/12/%E7%BB%95%E8%BF%87CDN%E7%9A%84%E5%B0%8Ftips%E8%AE%B0%E5%BD%95/&title=绕过CDN的小tips记录"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://sp0okymirror.space/2021/11/12/%E7%BB%95%E8%BF%87CDN%E7%9A%84%E5%B0%8Ftips%E8%AE%B0%E5%BD%95/&is_video=false&description=绕过CDN的小tips记录"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=绕过CDN的小tips记录&body=Check out this article: http://sp0okymirror.space/2021/11/12/%E7%BB%95%E8%BF%87CDN%E7%9A%84%E5%B0%8Ftips%E8%AE%B0%E5%BD%95/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://sp0okymirror.space/2021/11/12/%E7%BB%95%E8%BF%87CDN%E7%9A%84%E5%B0%8Ftips%E8%AE%B0%E5%BD%95/&title=绕过CDN的小tips记录"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://sp0okymirror.space/2021/11/12/%E7%BB%95%E8%BF%87CDN%E7%9A%84%E5%B0%8Ftips%E8%AE%B0%E5%BD%95/&title=绕过CDN的小tips记录"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://sp0okymirror.space/2021/11/12/%E7%BB%95%E8%BF%87CDN%E7%9A%84%E5%B0%8Ftips%E8%AE%B0%E5%BD%95/&title=绕过CDN的小tips记录"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://sp0okymirror.space/2021/11/12/%E7%BB%95%E8%BF%87CDN%E7%9A%84%E5%B0%8Ftips%E8%AE%B0%E5%BD%95/&title=绕过CDN的小tips记录"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://sp0okymirror.space/2021/11/12/%E7%BB%95%E8%BF%87CDN%E7%9A%84%E5%B0%8Ftips%E8%AE%B0%E5%BD%95/&name=绕过CDN的小tips记录&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://sp0okymirror.space/2021/11/12/%E7%BB%95%E8%BF%87CDN%E7%9A%84%E5%B0%8Ftips%E8%AE%B0%E5%BD%95/&t=绕过CDN的小tips记录"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2020-2021
+    Sp0okyMirror
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

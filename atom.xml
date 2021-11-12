@@ -6,7 +6,7 @@
   <link href="http://sp0okymirror.space/atom.xml" rel="self"/>
   
   <link href="http://sp0okymirror.space/"/>
-  <updated>2021-11-12T09:09:09.488Z</updated>
+  <updated>2021-11-12T10:27:29.457Z</updated>
   <id>http://sp0okymirror.space/</id>
   
   <author>
@@ -15,6 +15,51 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>渗透小Tips</title>
+    <link href="http://sp0okymirror.space/2021/11/12/%E6%B8%97%E9%80%8F%E5%B0%8FTips/"/>
+    <id>http://sp0okymirror.space/2021/11/12/%E6%B8%97%E9%80%8F%E5%B0%8FTips/</id>
+    <published>2021-11-12T10:18:49.000Z</published>
+    <updated>2021-11-12T10:27:29.457Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="0x00-前言"><a href="#0x00-前言" class="headerlink" title="0x00 前言"></a>0x00 前言</h1><blockquote><p>​    这篇文章旨在记录一些渗透或挖洞过程中遇到的小问题以及解决的方式。</p></blockquote><h1 id="0x01-Q-amp-A"><a href="#0x01-Q-amp-A" class="headerlink" title="0x01 Q&amp;A"></a>0x01 Q&amp;A</h1><ul><li>Q1：一个主域名，扫出了一堆子域名，但是子域名访问都是空白页，或者是Nginx、Apache默认页，还有站点自定义的一些默认页，那我去扫这些子域名目录的时候，啥也扫不到或者是只扫到了一些没啥用的东西，那怎么办呢？</li><li>A1：可以在子域名站点后加上/子域名的名字。例如：sub.baidu.com/sub/</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;0x00-前言&quot;&gt;&lt;a href=&quot;#0x00-前言&quot; class=&quot;headerlink&quot; title=&quot;0x00 前言&quot;&gt;&lt;/a&gt;0x00 前言&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;​    这篇文章旨在记录一些渗透或挖洞过程中遇到的小问题以及解决的方式。</summary>
+      
+    
+    
+    
+    
+    <category term="渗透测试" scheme="http://sp0okymirror.space/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>绕过CDN的小tips记录</title>
+    <link href="http://sp0okymirror.space/2021/11/12/%E7%BB%95%E8%BF%87CDN%E7%9A%84%E5%B0%8Ftips%E8%AE%B0%E5%BD%95/"/>
+    <id>http://sp0okymirror.space/2021/11/12/%E7%BB%95%E8%BF%87CDN%E7%9A%84%E5%B0%8Ftips%E8%AE%B0%E5%BD%95/</id>
+    <published>2021-11-12T10:09:49.000Z</published>
+    <updated>2021-11-12T10:14:30.303Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="0x00-前言"><a href="#0x00-前言" class="headerlink" title="0x00 前言"></a>0x00 前言</h3><p>​    前些天发现一个好玩的绕CDN的方式，记录一下，这篇文章后面会慢慢增加一些CDN绕过方式，学到了或者想到了就及时记录下来！</p><h3 id="0x01-Tips"><a href="#0x01-Tips" class="headerlink" title="0x01 Tips"></a>0x01 Tips</h3><ul><li>通过提取站点ico文件，上传到fofa搜索，或者提取hash再搜索。这个方式个人感觉挺不错的，而且准确率挺高</li><li>….</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;0x00-前言&quot;&gt;&lt;a href=&quot;#0x00-前言&quot; class=&quot;headerlink&quot; title=&quot;0x00 前言&quot;&gt;&lt;/a&gt;0x00 前言&lt;/h3&gt;&lt;p&gt;​    前些天发现一个好玩的绕CDN的方式，记录一下，这篇文章后面会慢慢增加一些CDN绕过方式，学</summary>
+      
+    
+    
+    
+    
+    <category term="渗透测试" scheme="http://sp0okymirror.space/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>Gates挖矿马记录</title>
