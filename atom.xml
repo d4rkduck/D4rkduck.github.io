@@ -6,7 +6,7 @@
   <link href="http://sp0okymirror.space/atom.xml" rel="self"/>
   
   <link href="http://sp0okymirror.space/"/>
-  <updated>2021-11-04T16:33:36.691Z</updated>
+  <updated>2021-11-12T09:09:09.488Z</updated>
   <id>http://sp0okymirror.space/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Gates挖矿马记录</title>
+    <link href="http://sp0okymirror.space/2021/11/12/Gates%E6%8C%96%E7%9F%BF%E9%A9%AC%E8%AE%B0%E5%BD%95/"/>
+    <id>http://sp0okymirror.space/2021/11/12/Gates%E6%8C%96%E7%9F%BF%E9%A9%AC%E8%AE%B0%E5%BD%95/</id>
+    <published>2021-11-12T09:01:45.000Z</published>
+    <updated>2021-11-12T09:09:09.488Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h2><ul><li>/tmp/gates.lod、/tmp/moni.lod</li><li>ps、netstat、ss、lsof被感染</li><li>……</li></ul><h2 id="专杀脚本"><a href="#专杀脚本" class="headerlink" title="专杀脚本"></a>专杀脚本</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">chattr -ais /etc/kblockd</span><br><span class="line">#cp /dev/null /etc/kblockd</span><br><span class="line">#chmod -x /etc/kblockd</span><br><span class="line">rm -f /etc/kblockd</span><br><span class="line"></span><br><span class="line">pkill .sshd</span><br><span class="line">chmod -x /usr/bin/.sshd</span><br><span class="line">rm -f /usr/bin/.sshd</span><br><span class="line"></span><br><span class="line">pkill ^getty</span><br><span class="line">rm -rf /usr/bin/bsd-port</span><br><span class="line">rm -rf /usr/bin/dpkgd</span><br><span class="line"></span><br><span class="line">find /etc/rc.d/ -name *selinux -delete</span><br><span class="line">find /etc/init.d -name *selinux -delete</span><br><span class="line">find /etc/rc.d/ -name *DbSecurity -delete</span><br><span class="line">find /etc/init.d -name *DbSecurity -delete</span><br><span class="line"></span><br><span class="line">yum erase net-tools &amp;&amp; yum install -y net-tools</span><br><span class="line">yum erase lsof &amp;&amp; yum install -y lsof</span><br><span class="line">yum install iproute</span><br><span class="line">yum install procps</span><br><span class="line">rm -f /tmp/moni.lod</span><br><span class="line">rm -f /tmp/gates.lod</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;特征&quot;&gt;&lt;a href=&quot;#特征&quot; class=&quot;headerlink&quot; title=&quot;特征&quot;&gt;&lt;/a&gt;特征&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;/tmp/gates.lod、/tmp/moni.lod&lt;/li&gt;
+&lt;li&gt;ps、netstat、ss、lsof被感染&lt;/li&gt;</summary>
+      
+    
+    
+    
+    
+    <category term="应急响应" scheme="http://sp0okymirror.space/tags/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/"/>
+    
+  </entry>
   
   <entry>
     <title>关于开博客那点事儿</title>
